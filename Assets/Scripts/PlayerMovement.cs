@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashingCooldown = 1f;
     Vector2 moveDirection = Vector2.zero;
 
+    public PlayerHealth playerHealth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -71,7 +73,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.CompareTag("Hazard") && !isDashing)
         {
-            Debug.Log("Player is damaged by a hazard!");
+            playerHealth.TakeDamage(15);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Enemy"))
+        {
+            playerHealth.TakeDamage(10);
         }
     }
 }
