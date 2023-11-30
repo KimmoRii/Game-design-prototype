@@ -48,6 +48,11 @@ public class EnemyMovement : MonoBehaviour
         {
             Debug.Log("Enemy damaged player!");
         }
+
+        if (collision.transform.CompareTag("Bullet"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void UpdateTargetDirection()
