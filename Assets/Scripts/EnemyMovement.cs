@@ -5,6 +5,10 @@ using UnityEngine;
 // I made this script with the help of this tutorial: https://www.youtube.com/watch?v=XHrWtLZtzy8&ab_channel=KetraGames
 public class EnemyMovement : MonoBehaviour
 {
+    public PlayerMelee playerMelee;
+    public PlayerShoot playerShoot;
+
+    [SerializeField] private int health;
     [SerializeField] private float speed;
     [SerializeField] private float rotationSpeed;
     private bool playerSpotted;
@@ -34,22 +38,34 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Player"))
+        if (other.tag == "Player")
         {
             playerSpotted = true;
         }
+
+        if (other.tag == "Sword")
+        {
+            playerShoot.energy += 1;
+            TakeDamage(playerMelee.meleeDamage);
+        }
+
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    { 
-        if (collision.transform.CompareTag("Player"))
-        {
-            Debug.Log("Enemy damaged player!");
-        }
-
+    {
         if (collision.transform.CompareTag("Bullet"))
+        {
+            TakeDamage(playerShoot.rangedDamage);
+        }
+    }
+
+    private void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
         {
             Destroy(gameObject);
         }

@@ -9,13 +9,14 @@ public class PlayerShoot : MonoBehaviour
 {
     [SerializeField] private Transform attackPoint;
     [SerializeField] private GameObject bulletPrefab;
-    
-    [SerializeField] private float coolDown;
+
+    public int rangedDamage;
+    [SerializeField] private float rangedCoolDown;
     [SerializeField] private float bulletForce;
 
     private float cooldownTimer;
     private bool weaponReady = true;
-    [SerializeField] private int ammo = 20;
+    public int energy = 20;
     public TMP_Text ammoText;
 
     // Start is called before the first frame update
@@ -27,7 +28,7 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ammoText.text = "Energy " + ammo.ToString();
+        ammoText.text = "Energy " + energy.ToString();
 
         if (Input.GetMouseButton(0))
         {
@@ -42,14 +43,14 @@ public class PlayerShoot : MonoBehaviour
 
     private void Shoot()
     {
-        if (weaponReady && ammo > 0)
+        if (weaponReady && energy > 0)
         {
             GameObject bullet = Instantiate(bulletPrefab, attackPoint.position, attackPoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(attackPoint.up * bulletForce, ForceMode2D.Impulse);
-            cooldownTimer = coolDown;
+            cooldownTimer = rangedCoolDown;
             weaponReady = false;
-            ammo -= 1;
+            energy -= 1;
         }
     }
 
