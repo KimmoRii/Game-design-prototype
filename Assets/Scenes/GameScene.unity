@@ -310,7 +310,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ammo: 20'
+  m_text: 'Energy: 20'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2378,11 +2378,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6084703688117305803, guid: 7ea067f1267965a4a993ad7e31ee541c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.51
+      value: 22.15
       objectReference: {fileID: 0}
     - target: {fileID: 6084703688117305803, guid: 7ea067f1267965a4a993ad7e31ee541c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.31
+      value: 25.44
       objectReference: {fileID: 0}
     - target: {fileID: 6084703688117305803, guid: 7ea067f1267965a4a993ad7e31ee541c, type: 3}
       propertyPath: m_LocalPosition.z

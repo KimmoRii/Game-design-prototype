@@ -27,7 +27,7 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ammoText.text = "Ammo " + ammo.ToString();
+        ammoText.text = "Energy " + ammo.ToString();
 
         if (Input.GetMouseButton(0))
         {
