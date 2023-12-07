@@ -9,6 +9,7 @@ TagManager:
   - Hazard
   - Bullet
   - Sword
+  - Bubble
   layers:
   - Default
   - TransparentFX

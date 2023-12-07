@@ -6,8 +6,6 @@ public class ProjectileBehavior : MonoBehaviour
 {
     [SerializeField] private bool canPierceEnemies;
 
-    [SerializeField] private float damage;
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Enemy"))

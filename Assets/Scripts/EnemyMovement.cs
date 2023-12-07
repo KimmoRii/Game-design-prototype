@@ -11,11 +11,14 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private int health;
     [SerializeField] private float speed;
     [SerializeField] private float rotationSpeed;
-    private bool playerSpotted;
+    public bool playerSpotted;
 
     private Rigidbody2D enemyRigidbody;
     public Transform player;
     private Vector2 targetDirection;
+
+    public Collider2D bodyCollider;
+
 
     private void Awake()
     {
@@ -40,9 +43,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Bubble")
         {
-            playerSpotted = true;
+            speed *= 0.3f;
         }
 
         if (other.tag == "Sword")
@@ -50,8 +53,14 @@ public class EnemyMovement : MonoBehaviour
             playerShoot.energy += 1;
             TakeDamage(playerMelee.meleeDamage);
         }
+    }
 
-        
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Bubble")
+        {
+            speed = 2;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
