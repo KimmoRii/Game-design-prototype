@@ -88,7 +88,7 @@ public class PlayerShoot : MonoBehaviour
             Instantiate(bubblePrefab, new Vector3(cursorPos.x, cursorPos.y, -0.3f), Quaternion.identity);
             bubbleCooldownTimer = bubbleCoolDown;
             bubbleReady = false;
-            energy -= bulletEnergyCost;
+            energy -= bubbleEnergyCost;
         }
     }
 
