@@ -454,7 +454,7 @@ MonoBehaviour:
   isDashing: 0
   dashingPower: 24
   dashingTime: 0.2
-  dashingCooldown: 1
+  dashingCooldown: 0.1
   playerHealth: {fileID: 4633911239460573720}
 --- !u!114 &3995571234081757735
 MonoBehaviour:
@@ -470,10 +470,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 6491582496740509587}
   bulletPrefab: {fileID: 2155611863027526260, guid: 321bf130d365f3e45959452fddec864a, type: 3}
+  bubblePrefab: {fileID: 0}
+  bubbleCoolDown: 0
+  bubbleReady: 0
   rangedDamage: 1
   rangedCoolDown: 1
   bulletForce: 20
-  ammo: 20
+  energy: 20
+  bulletEnergyCost: 2
+  bubbleEnergyCost: 10
   ammoText: {fileID: 0}
 --- !u!114 &4633911239460573720
 MonoBehaviour:
