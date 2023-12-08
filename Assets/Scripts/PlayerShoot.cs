@@ -59,7 +59,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void Shoot()
     {
-        if (weaponReady && energy > 0)
+        if (weaponReady && energy >= bulletEnergyCost)
         {
             GameObject bullet = Instantiate(bulletPrefab, attackPoint.position, attackPoint.rotation);
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -82,7 +82,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void ShootBubble()
     {
-        if (bubbleReady)
+        if (bubbleReady && energy >= bubbleEnergyCost)
         {
             Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Instantiate(bubblePrefab, new Vector3(cursorPos.x, cursorPos.y, -0.3f), Quaternion.identity);
